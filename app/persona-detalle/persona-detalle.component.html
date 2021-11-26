@@ -1,0 +1,61 @@
+<!---->
+<h1 mat-dialog-title class="centro">Persona</h1>
+<form [formGroup]="profileForm">
+    <div mat-dialog-content>
+        <div  class="estilo" >
+
+            <mat-form-field >
+                <input  matInput [(ngModel)]="data.user" type="text" placeholder="Usuario"  formControlName="user" [readonly]= "!editable">
+            </mat-form-field>
+
+            <mat-form-field >
+                <input matInput [(ngModel)]="data.surname" type="text" placeholder="Apellido"   formControlName="surname" [readonly]= "!editable">
+            </mat-form-field>
+
+            <mat-form-field >
+                <input matInput [(ngModel)]="data.password" type="password"  placeholder="Constraseña" formControlName="password" [readonly]= "!editable">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.name" type="text"  placeholder="Nombre" formControlName="name" [readonly]= "!editable">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.company_email" type="email"  placeholder="Correo de empresa" formControlName="company_email"  [readonly]= "!editable">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.personal_email" type="email"  placeholder="Correo personal" formControlName="personal_email" [readonly]= "!editable">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.city" type="text"  placeholder="Ciudad" formControlName="city" [readonly]= "!editable">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.active" type="text"  placeholder="Active" formControlName="active" [readonly]= "!editable">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.created_date"  type="date" placeholder="Fecha creación" formControlName="created_date" [readonly]= "!editable">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.imagen_url" type="url" placeholder="URL imagen" formControlName="imagen_url" [readonly]= "!editable">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.termination_date" type="date" placeholder="Fecha finalización" formControlName="termination_date" [readonly]= "!editable">
+            </mat-form-field>
+         
+        </div>
+    </div>
+    <div mat-dialog-actions *ngIf="editable==false">
+        <button mat-button (click)="cancelar()" class="centro">Cancelar</button>  
+    </div>
+
+    <div mat-dialog-actions *ngIf="editable">
+        <button mat-button (click)="cancelar()">Cancelar</button>
+        <button mat-button (click)="aceptar()" [disabled]="!profileForm.valid" [mat-dialog-close]="data" cdkFocusInitial>Confirmar</button>
+    </div>
+</form>

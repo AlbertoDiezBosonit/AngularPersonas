@@ -1,0 +1,12 @@
+.estilo{
+    display: flex;
+    flex-direction: column; 
+    margin:1rem auto; 
+    max-width: 600px; 
+    padding: 1rem;
+}
+
+.centro{
+    margin: 0px auto;
+    text-align: center;
+}
